@@ -117,10 +117,10 @@ begin
 
   -- --- recurring rules (upcoming bills & salary) ----------------------
   insert into public.recurring_rules (user_id, kind, description, amount, currency, category_id, payment_method_id, frequency, next_run_on) values
-    (demo_id, 'expense', 'Electricity bill',       140.00,  'USD', cat_bills,  pm_bank,   'monthly', m0 + interval '1 month' + 5),
-    (demo_id, 'expense', 'Fiber internet',         4200.00, 'PKR', cat_bills,  pm_bank,   'monthly', m0 + interval '1 month' + 5),
-    (demo_id, 'expense', 'Streaming subscription', 15.99,   'USD', cat_bills,  pm_card,   'monthly', m0 + interval '1 month' + 2),
-    (demo_id, 'income',  'Monthly salary',         3400.00, 'USD', cat_salary, pm_bank,   'monthly', m0 + interval '1 month');
+    (demo_id, 'expense', 'Electricity bill',       140.00,  'USD', cat_bills,  pm_bank,   'monthly', (m0 + interval '1 month')::date + 5),
+    (demo_id, 'expense', 'Fiber internet',         4200.00, 'PKR', cat_bills,  pm_bank,   'monthly', (m0 + interval '1 month')::date + 5),
+    (demo_id, 'expense', 'Streaming subscription', 15.99,   'USD', cat_bills,  pm_card,   'monthly', (m0 + interval '1 month')::date + 2),
+    (demo_id, 'income',  'Monthly salary',         3400.00, 'USD', cat_salary, pm_bank,   'monthly', (m0 + interval '1 month')::date);
 
   -- --- goals -----------------------------------------------------------
   insert into public.goals (user_id, name, target_amount, saved_amount, currency, due_on, color) values
