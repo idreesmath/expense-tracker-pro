@@ -2,6 +2,8 @@
 
 A production-ready, **multi-currency (USD / PKR)**, **bilingual (English / اردو with full RTL)** personal & small-business finance app. Built with Next.js 16 (App Router), Supabase, Tailwind CSS 4 and shadcn/ui, and optimized for one-click deployment on Vercel.
 
+**🌐 Live app:** [https://expense-tracker-pro-idrees.vercel.app/](https://expense-tracker-pro-idrees.vercel.app/)
+
 > **Demo account** (after seeding): `demo@expensetracker.pro` / `Demo@1234`
 
 ---
