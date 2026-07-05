@@ -31,7 +31,7 @@ const splineMono = Spline_Sans_Mono({
 const nastaliq = Noto_Nastaliq_Urdu({
   variable: "--font-nastaliq",
   subsets: ["arabic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
