@@ -1,0 +1,279 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =====================================================================
+   Expense Tracker Pro — "ledger & banknote" design system
+   Palette: pine ink / banyan green / marigold / madder rose on paper.
+   Chart palettes validated for CVD separation & contrast (see README).
+   ===================================================================== */
+
+:root {
+  --radius: 0.625rem;
+
+  /* Surfaces & ink */
+  --background: #f7f8f6; /* paper */
+  --foreground: #0d1f1a; /* pine ink */
+  --card: #ffffff;
+  --card-foreground: #0d1f1a;
+  --popover: #ffffff;
+  --popover-foreground: #0d1f1a;
+
+  /* Brand */
+  --primary: #177154; /* banyan green */
+  --primary-foreground: #f4faf7;
+  --secondary: #e9efeb;
+  --secondary-foreground: #16382e;
+  --muted: #eef1ee;
+  --muted-foreground: #5c6a64;
+  --accent: #eef4f0;
+  --accent-foreground: #16382e;
+  --destructive: #be4a5a; /* madder rose */
+  --destructive-foreground: #ffffff;
+  --success: #128a63;
+  --success-foreground: #ffffff;
+  --warning: #b26a10; /* marigold, inked for text use */
+  --warning-foreground: #ffffff;
+
+  --border: #dfe5e0;
+  --input: #dfe5e0;
+  --ring: #177154;
+
+  /* Charts — light steps, validated on white card surface */
+  --chart-1: #128a63;
+  --chart-2: #d98e2b;
+  --chart-3: #2a7fbf;
+  --chart-4: #c74057;
+  --chart-5: #5a63b6;
+  --chart-6: #b65aa0;
+  --chart-7: #c46b3a;
+  --chart-other: #8a938e;
+  --chart-grid: #e4e8e4;
+  --chart-axis: #9aa5a0;
+  --income: #128a63;
+  --expense: #c74057;
+
+  /* Sidebar — deep pine panel, the app's dark anchor in both themes */
+  --sidebar: #0d1f1a;
+  --sidebar-foreground: #d7e2dc;
+  --sidebar-primary: #2fa37e;
+  --sidebar-primary-foreground: #08130f;
+  --sidebar-accent: #1a2f28;
+  --sidebar-accent-foreground: #eaf2ee;
+  --sidebar-border: #1e332c;
+  --sidebar-ring: #2fa37e;
+}
+
+.dark {
+  --background: #0a1411;
+  --foreground: #e3ece7;
+  --card: #101b17;
+  --card-foreground: #e3ece7;
+  --popover: #12201a;
+  --popover-foreground: #e3ece7;
+
+  --primary: #2fa37e;
+  --primary-foreground: #06130e;
+  --secondary: #16261f;
+  --secondary-foreground: #cfe0d7;
+  --muted: #15231d;
+  --muted-foreground: #8fa39a;
+  --accent: #16281f;
+  --accent-foreground: #cfe0d7;
+  --destructive: #db6478;
+  --destructive-foreground: #1c0b0f;
+  --success: #2fa37e;
+  --success-foreground: #06130e;
+  --warning: #c08115;
+  --warning-foreground: #140d02;
+
+  --border: #21332b;
+  --input: #24382f;
+  --ring: #2fa37e;
+
+  /* Charts — dark steps, validated on #101B17 card surface */
+  --chart-1: #2fa37e;
+  --chart-2: #c08115;
+  --chart-3: #3987c5;
+  --chart-4: #db6478;
+  --chart-5: #7377d0;
+  --chart-6: #bc63a9;
+  --chart-7: #c96f3e;
+  --chart-other: #6f7d76;
+  --chart-grid: #1d2d26;
+  --chart-axis: #5f7169;
+  --income: #2fa37e;
+  --expense: #db6478;
+
+  --sidebar: #0a1411;
+  --sidebar-foreground: #d7e2dc;
+  --sidebar-primary: #2fa37e;
+  --sidebar-primary-foreground: #08130f;
+  --sidebar-accent: #16261f;
+  --sidebar-accent-foreground: #eaf2ee;
+  --sidebar-border: #182822;
+  --sidebar-ring: #2fa37e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+  --color-chart-7: var(--chart-7);
+  --color-income: var(--income);
+  --color-expense: var(--expense);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-mono: var(--font-spline-mono), ui-monospace, "SF Mono", monospace;
+  --font-urdu: var(--font-nastaliq), var(--font-instrument-sans), sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Smooth (but subtle) theme cross-fade; killed for reduced motion. */
+  body,
+  .theme-smooth {
+    transition:
+      background-color 240ms ease,
+      color 240ms ease,
+      border-color 240ms ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Urdu / RTL typography: Nastaliq needs air. */
+  [dir="rtl"] body {
+    font-family: var(--font-urdu);
+  }
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3 {
+    line-height: 1.9;
+  }
+  [dir="rtl"] p,
+  [dir="rtl"] span,
+  [dir="rtl"] button,
+  [dir="rtl"] a,
+  [dir="rtl"] label {
+    line-height: 1.85;
+  }
+  /* Amounts and latin identifiers keep the mono ledger face in RTL too. */
+  [dir="rtl"] .ledger-num {
+    font-family: var(--font-spline-mono), monospace;
+  }
+}
+
+@layer utilities {
+  /* Signature: ledger numerals — every monetary figure wears this. */
+  .ledger-num {
+    font-family: var(--font-spline-mono), ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  /* Signature: guilloché — fine-line banknote engraving as brand texture. */
+  .guilloche {
+    position: relative;
+    isolation: isolate;
+  }
+  .guilloche::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='0.6' opacity='0.14'%3E%3Ccircle cx='120' cy='120' r='36'/%3E%3Ccircle cx='120' cy='120' r='58'/%3E%3Ccircle cx='120' cy='120' r='82'/%3E%3Ccircle cx='120' cy='120' r='108'/%3E%3Ccircle cx='0' cy='0' r='60'/%3E%3Ccircle cx='240' cy='0' r='60'/%3E%3Ccircle cx='0' cy='240' r='60'/%3E%3Ccircle cx='240' cy='240' r='60'/%3E%3Ccircle cx='0' cy='0' r='100'/%3E%3Ccircle cx='240' cy='0' r='100'/%3E%3Ccircle cx='0' cy='240' r='100'/%3E%3Ccircle cx='240' cy='240' r='100'/%3E%3Cellipse cx='120' cy='120' rx='108' ry='40'/%3E%3Cellipse cx='120' cy='120' rx='40' ry='108'/%3E%3Cellipse cx='120' cy='120' rx='90' ry='62' transform='rotate(45 120 120)'/%3E%3Cellipse cx='120' cy='120' rx='90' ry='62' transform='rotate(-45 120 120)'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 240px 240px;
+  }
+
+  /* Hairline dashed rules between ledger rows */
+  .ledger-rule {
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Print: reports render as a clean document. */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  main {
+    padding: 0 !important;
+  }
+}
+.print-only {
+  display: none;
+}

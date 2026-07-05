@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#0d1f1a"/>
+  <g fill="none" stroke="#2fa37e" stroke-width="1.5">
+    <circle cx="32" cy="32" r="18" opacity="0.9"/>
+    <circle cx="32" cy="32" r="12" opacity="0.5"/>
+    <ellipse cx="32" cy="32" rx="18" ry="8" opacity="0.4"/>
+    <ellipse cx="32" cy="32" rx="8" ry="18" opacity="0.4"/>
+  </g>
+  <text x="32" y="37.5" text-anchor="middle" font-size="13" font-family="Georgia, serif" fill="#e3ece7">₨$</text>
+</svg>
