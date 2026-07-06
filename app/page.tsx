@@ -142,7 +142,10 @@ export default async function LandingPage() {
             <BrandMark className="size-6 text-primary" />
             <span>{tc("appName")}</span>
           </div>
-          <p>{t("footerRights")}</p>
+          <div className="flex flex-col items-center gap-1 sm:items-end">
+            <p>{t("footerRights")}</p>
+            <p>{t("footerDeveloper")}</p>
+          </div>
         </div>
       </footer>
     </div>

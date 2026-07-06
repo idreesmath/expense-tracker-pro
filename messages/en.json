@@ -140,6 +140,7 @@
     "featureSecureTitle": "Your rows, only yours",
     "featureSecureBody": "Row-level security on every table. Your data is unreadable to anyone but you.",
     "footerRights": "Built as a production-grade reference app.",
+    "footerDeveloper": "Developed by Muhammad Idrees",
     "openApp": "Open app"
   },
   "auth": {
