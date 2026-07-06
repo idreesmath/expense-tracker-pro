@@ -1,6 +1,6 @@
 ### Name: Muhammad Idrees
 ### Panaversity ID: @idrees448-77qh
-#### Task: 02 AI101 - P011 (Create Any App or Game Using AI)
+#### Task: 02 (Create Any App or Game Using AI) Course: AI101 - P011
 
 
 # Expense Tracker Pro
