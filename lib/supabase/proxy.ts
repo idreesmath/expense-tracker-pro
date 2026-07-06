@@ -53,11 +53,27 @@ export async function updateSession(request: NextRequest) {
     } = await supabase.auth.getUser());
   } catch {
     // A revoked refresh token must sign the visitor out, not take the
-    // whole request down. Drop the dead auth cookies so every later
-    // request doesn't retry the doomed refresh.
-    response = NextResponse.next({ request });
-    for (const { name } of request.cookies.getAll()) {
-      if (name.startsWith("sb-")) response.cookies.delete(name);
+    // whole request down.
+  }
+
+  // If the browser sent a session cookie but it no longer resolves to a
+  // user (revoked/rotated refresh token), delete it here — waiting for
+  // the client library's own cleanup is not deterministic in the proxy,
+  // and every request would keep retrying the doomed refresh. The PKCE
+  // code-verifier cookie is spared: it belongs to a sign-in still in
+  // flight, not to the dead session.
+  if (!user) {
+    const dead = request.cookies
+      .getAll()
+      .filter(
+        ({ name }) =>
+          name.startsWith("sb-") &&
+          name.includes("-auth-token") &&
+          !name.includes("code-verifier")
+      );
+    if (dead.length > 0) {
+      response = NextResponse.next({ request });
+      for (const { name } of dead) response.cookies.delete(name);
     }
   }
 
