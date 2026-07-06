@@ -78,7 +78,7 @@ export function StatCards({
             <AnimatedCounter
               value={balance}
               format={(n) => fmtDisplay(n)}
-              className="ledger-num text-3xl font-medium tracking-tight text-sidebar-primary"
+              className="ledger-num block text-center text-xl font-medium tracking-tight text-sidebar-primary"
             />
           </CardContent>
         </Card>
@@ -100,12 +100,12 @@ export function StatCards({
                   aria-hidden
                 />
               </div>
-              <div>
+              <div className="text-center">
                 <AnimatedCounter
                   value={tile.value}
                   format={(n) => fmtDisplay(n)}
                   className={cn(
-                    "ledger-num text-2xl font-medium tracking-tight",
+                    "ledger-num block text-xl font-medium tracking-tight",
                     tile.accent
                   )}
                 />
