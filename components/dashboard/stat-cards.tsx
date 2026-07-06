@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { HandCoins, PiggyBank, ReceiptText, Scale } from "lucide-react";
+import { HandCoins, ReceiptText, Scale, Wallet } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useMoney } from "@/components/money-context";
 import { AnimatedCounter } from "@/components/animated-counter";
@@ -51,7 +51,7 @@ export function StatCards({
       accent: "text-expense",
     },
     {
-      icon: PiggyBank,
+      icon: Wallet,
       label: t("totalSavings"),
       value: savings,
       accent: savings >= 0 ? "text-income" : "text-expense",
