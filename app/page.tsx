@@ -66,10 +66,10 @@ export default async function LandingPage() {
         </header>
 
         <div className="mx-auto max-w-6xl px-4 pb-20 pt-14 sm:px-6 sm:pb-28 sm:pt-20">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-sidebar-primary">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-sidebar-primary rtl:text-sm rtl:leading-loose rtl:tracking-normal">
             {t("heroEyebrow")}
           </p>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-[1.15] sm:text-6xl sm:leading-[1.1]">
+          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-[1.15] sm:text-6xl sm:leading-[1.1] rtl:mt-6 rtl:leading-[1.9] sm:rtl:leading-[1.8]">
             {t("heroTitle")}
           </h1>
           <p className="mt-5 max-w-xl text-base text-sidebar-foreground/75 sm:text-lg">
