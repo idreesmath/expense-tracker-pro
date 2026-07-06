@@ -1,3 +1,8 @@
+### Name: Muhammad Idrees
+### Panaversity ID: @idrees448-77qh
+#### Task: 02 (Create Any App or Game Using AI) Course: AI101 - P011
+
+
 # Expense Tracker Pro
 
 A production-ready, **multi-currency (USD / PKR)**, **bilingual (English / اردو with full RTL)** personal & small-business finance app. Built with Next.js 16 (App Router), Supabase, Tailwind CSS 4 and shadcn/ui, and optimized for one-click deployment on Vercel.
