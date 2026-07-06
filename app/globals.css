@@ -161,7 +161,8 @@
   --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
   --font-mono: var(--font-spline-mono), ui-monospace, "SF Mono", monospace;
-  --font-urdu: var(--font-nastaliq), var(--font-instrument-sans), sans-serif;
+  --font-urdu: var(--font-naskh), var(--font-instrument-sans), sans-serif;
+  --font-urdu-display: var(--font-gulzar), var(--font-naskh), serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -196,21 +197,23 @@
     }
   }
 
-  /* Urdu / RTL typography: Nastaliq needs air. */
+  /* Urdu / RTL typography: Naskh for legible UI text, Nastaliq for display. */
   [dir="rtl"] body {
     font-family: var(--font-urdu);
   }
   [dir="rtl"] h1,
   [dir="rtl"] h2,
-  [dir="rtl"] h3 {
-    line-height: 1.9;
+  [dir="rtl"] h3,
+  [dir="rtl"] .font-display {
+    font-family: var(--font-urdu-display);
+    line-height: 2;
   }
   [dir="rtl"] p,
   [dir="rtl"] span,
   [dir="rtl"] button,
   [dir="rtl"] a,
   [dir="rtl"] label {
-    line-height: 1.85;
+    line-height: 1.75;
   }
   /* Amounts and latin identifiers keep the mono ledger face in RTL too. */
   [dir="rtl"] .ledger-num {
