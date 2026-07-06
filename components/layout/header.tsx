@@ -53,7 +53,7 @@ export function Header({ notifications }: { notifications: AppNotification[] }) 
             className="w-72 bg-sidebar p-0 text-sidebar-foreground"
           >
             <SheetHeader className="border-b border-sidebar-border px-4 py-4">
-              <SheetTitle className="flex items-center gap-2 text-sidebar-foreground">
+              <SheetTitle className="flex items-center gap-2 text-sidebar-foreground rtl:leading-[1.8]">
                 <BrandMark className="size-7 text-sidebar-primary" />
                 {tc("appName")}
               </SheetTitle>

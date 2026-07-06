@@ -36,11 +36,11 @@ export function Sidebar({
       <div className={cn("flex items-center gap-2.5 px-4 py-5", collapsed && "justify-center px-2")}>
         <BrandMark className="text-sidebar-primary" />
         {!collapsed && (
-          <div className="min-w-0">
-            <p className="truncate text-sm font-semibold leading-tight">
+          <div className="min-w-0 rtl:py-1">
+            <p className="truncate text-sm font-semibold leading-tight rtl:leading-[1.8]">
               {tc("appName")}
             </p>
-            <p className="truncate text-[11px] text-sidebar-foreground/60">
+            <p className="truncate text-[11px] text-sidebar-foreground/60 rtl:leading-[1.8]">
               {tc("tagline")}
             </p>
           </div>

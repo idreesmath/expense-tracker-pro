@@ -38,8 +38,10 @@ export default async function LandingPage() {
       <div className="guilloche bg-sidebar text-sidebar-foreground">
         <header className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
           <div className="flex items-center gap-2.5">
-            <BrandMark className="text-sidebar-primary" />
-            <span className="text-sm font-semibold">{tc("appName")}</span>
+            <BrandMark className="size-10 text-sidebar-primary" />
+            <span className="text-sm font-semibold rtl:leading-[1.8]">
+              {tc("appName")}
+            </span>
           </div>
           <nav className="flex items-center gap-1.5">
             <LocaleSwitch className="text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground" />
