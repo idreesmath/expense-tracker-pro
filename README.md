@@ -2,6 +2,8 @@
 ### Panaversity ID: @idrees448-77qh
 #### Task: 02 (Create Any App or Game Using AI) Course: AI101 - P011
 
+![Expense Tracker Pro](https://github.com/idreesmath/expense-tracker-pro/blob/main/expense-tracker-pro.png)
+
 
 # Expense Tracker Pro
 
