@@ -2,7 +2,7 @@
  * Minimal offline shell: cache-first for static assets, network-first
  * for pages with an offline fallback to the last cached dashboard.
  */
-const CACHE = "etp-shell-v1";
+const CACHE = "etp-shell-v2";
 const STATIC_ASSETS = ["/", "/icons/icon.svg", "/manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
@@ -32,14 +32,18 @@ self.addEventListener("fetch", (event) => {
   if (url.pathname.startsWith("/api") || url.pathname.startsWith("/auth")) return;
 
   if (url.pathname.startsWith("/_next/static") || url.pathname.startsWith("/icons")) {
-    // Immutable build assets: cache-first.
+    // Immutable build assets: cache-first. Only cache successful
+    // responses — a mid-deploy 404 must never be frozen into the
+    // cache, or every later load of that chunk fails permanently.
     event.respondWith(
       caches.match(request).then(
         (hit) =>
           hit ||
           fetch(request).then((response) => {
-            const copy = response.clone();
-            caches.open(CACHE).then((cache) => cache.put(request, copy));
+            if (response.ok) {
+              const copy = response.clone();
+              caches.open(CACHE).then((cache) => cache.put(request, copy));
+            }
             return response;
           })
       )
@@ -47,12 +51,15 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Pages: network-first with cache fallback.
+  // Pages: network-first with cache fallback. Same rule: never cache
+  // error responses, or the offline fallback would replay them.
   event.respondWith(
     fetch(request)
       .then((response) => {
-        const copy = response.clone();
-        caches.open(CACHE).then((cache) => cache.put(request, copy));
+        if (response.ok) {
+          const copy = response.clone();
+          caches.open(CACHE).then((cache) => cache.put(request, copy));
+        }
         return response;
       })
       .catch(() => caches.match(request).then((hit) => hit || caches.match("/")))

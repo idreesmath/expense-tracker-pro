@@ -19,6 +19,17 @@ export default function GlobalError({
     console.error(error);
   }, [error]);
 
+  // A failed chunk/RSC fetch (stale tab after a deploy, poisoned SW
+  // cache) can only be recovered by a full navigation — reset() would
+  // just re-render into the same missing module.
+  const isStaleBundle = /Loading chunk|ChunkLoadError|dynamically imported module|Failed to fetch/i.test(
+    `${error.name} ${error.message}`
+  );
+  const retry = () => {
+    if (isStaleBundle) window.location.reload();
+    else reset();
+  };
+
   return (
     <div className="flex min-h-dvh flex-col items-center justify-center gap-4 px-4 text-center">
       <TriangleAlert className="size-10 text-warning" aria-hidden />
@@ -28,7 +39,7 @@ export default function GlobalError({
       <p className="max-w-sm text-sm text-muted-foreground">
         {t("genericBody")}
       </p>
-      <Button onClick={reset}>{t("reload")}</Button>
+      <Button onClick={retry}>{t("reload")}</Button>
     </div>
   );
 }
