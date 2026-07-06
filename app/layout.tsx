@@ -1,9 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import {
   Fraunces,
-  Gulzar,
   Instrument_Sans,
-  Noto_Naskh_Arabic,
   Spline_Sans_Mono,
 } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
@@ -27,19 +25,6 @@ const fraunces = Fraunces({
 const splineMono = Spline_Sans_Mono({
   variable: "--font-spline-mono",
   subsets: ["latin"],
-});
-
-// Urdu body/UI text: Naskh stays legible at small sizes where Nastaliq doesn't.
-const naskh = Noto_Naskh_Arabic({
-  variable: "--font-naskh",
-  subsets: ["arabic"],
-});
-
-// Urdu display/headings: Gulzar's Nastaliq keeps the calligraphic identity.
-const gulzar = Gulzar({
-  variable: "--font-gulzar",
-  subsets: ["arabic"],
-  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -69,8 +54,13 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={dirFor(locale)} suppressHydrationWarning>
       <body
-        className={`${instrumentSans.variable} ${fraunces.variable} ${splineMono.variable} ${naskh.variable} ${gulzar.variable} min-h-full font-sans antialiased`}
+        className={`${instrumentSans.variable} ${fraunces.variable} ${splineMono.variable} min-h-full font-sans antialiased`}
       >
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <NextIntlClientProvider>
           <Providers>{children}</Providers>
         </NextIntlClientProvider>
